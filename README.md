@@ -1,11 +1,11 @@
 # 🎹 Piano Player
-A simple and interactive **Virtual Piano Web App** where users can play musical notes using mouse clicks or keyboard keys.
+A simple and interactive **Virtual Piano Web App** where users can play musical notes using mouse hovers or keyboard keys.
 ---
 
 ## 🚀 Features
 
 - 🎼 Play musical notes with keyboard
-- 🖱️ Mouse click support
+- 🖱️ Mouse hover support
 - 📱 Responsive design for all devices
 - 🔊 High-quality piano sound effects
 - 🎨 Clean and minimal UI
@@ -31,7 +31,7 @@ Piano-Play/
 
 1️⃣ Open Live Website  
 2️⃣ Tap keys on your **keyboard**  
-3️⃣ Or click on the **piano keys**  
+3️⃣ Or hover on the **piano bars**  
 4️⃣ Enjoy playing music 🎶
 
 ---
