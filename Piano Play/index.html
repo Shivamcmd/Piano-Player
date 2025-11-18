@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Color Guitar</title>
+  <link rel="icon" type="icon" href="./asset/piano.png">
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 20px;
+      background: white;
+    }
+    .box {
+      width: 136px;
+      height: 685px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 30px; 
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  
+  <script>
+    // Function to generate random color
+    function getRandomColor() {
+      // Random hex color
+      let letters = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    
+  // Piano notes array (audio file paths)
+  const sounds = [
+    "./asset/cinematic-piano-note-362716.mp3",
+    "./asset/d6-82020.mp3",
+    "./asset/g6-82013.mp3",
+    "./asset/do-80236.mp3",
+    "./asset/guit-91472.mp3",
+    "./asset/toy-piano-87353.mp3",
+    "./asset/2-notes-octave-guitar-83275.mp3",
+    "./asset/scale-d6-106129.mp3",
+    "./asset/piano-chord-6-97900.mp3",
+    "./asset/a3-101081.mp3",
+
+  ];
+
+    // Assign keys for piano (10 keys)
+  const keys = ["A","S","D","F","G","H","J","K","L",";"];
+
+    // Create 10 boxes
+    let boxes = [];
+    for (let i = 0; i < 10; i++) {
+      let div = document.createElement("div");
+      div.classList.add("box");
+
+      // Set initial random color
+      div.style.backgroundColor = getRandomColor();
+       div.textContent = keys[i]; // show which key controls it
+    
+
+      // On click → change to new random color
+      div.addEventListener("mouseenter", function() {
+        div.style.backgroundColor = getRandomColor();
+        let audio = new Audio(sounds[i]);
+        audio.play();
+      });
+
+      // Add to body
+      document.body.appendChild(div);
+    }
+      document.addEventListener("keydown", (event) => {
+    let index = keys.indexOf(event.key.toUpperCase());
+    if (index !== -1) {
+      let audio = new Audio(sounds[index]);
+      audio.play();
+      boxes[index].style.backgroundColor = getRandomColor();
+    }
+  });
+  </script>
+
+</body>
+</html>
