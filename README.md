@@ -1,7 +1,5 @@
 # 🎹 Piano Player
-🔗 **Live Demo:** 👉 https://pianoplayerr.netlify.app/
 A simple and interactive **Virtual Piano Web App** where users can play musical notes using mouse clicks or keyboard keys.
-
 ---
 
 ## 🚀 Features
