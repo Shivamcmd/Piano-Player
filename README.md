@@ -8,7 +8,7 @@ A simple and interactive **Virtual Piano Web App** where users can play musical 
 
 | Desktop View | Mobile View |
 |-------------|-------------|
-| <img src="./assets/piano-desktop.png" width="600" /> | <img src="./assets/piano-mobile.png" width="300" /> |
+| <img src="./asset/desk view.png" width="600" /> | <img src="./asset/mobile view.png" width="300" /> |
 
 </div>
 
