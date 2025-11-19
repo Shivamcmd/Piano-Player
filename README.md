@@ -2,6 +2,16 @@
 A simple and interactive **Virtual Piano Web App** where users can play musical notes using mouse hovers or keyboard keys.
 ---
 
+<div align="center">
+
+# 🎹 Piano Player — Desktop & Mobile View
+
+| Desktop View | Mobile View |
+|-------------|-------------|
+| <img src="./assets/piano-desktop.png" width="600" /> | <img src="./assets/piano-mobile.png" width="300" /> |
+
+</div>
+
 ## 🚀 Features
 
 - 🎼 Play musical notes with keyboard
