@@ -8,46 +8,50 @@ function getRandomColor() {
 }
 
 const sounds = [
-  "./asset/cinematic-piano-note-362716.mp3",
-  "./asset/d6-82020.mp3",
-  "./asset/g6-82013.mp3",
-  "./asset/do-80236.mp3",
-  "./asset/guit-91472.mp3",
-  "./asset/toy-piano-87353.mp3",
-  "./asset/2-notes-octave-guitar-83275.mp3",
-  "./asset/scale-d6-106129.mp3",
-  "./asset/piano-chord-6-97900.mp3",
-  "./asset/a3-101081.mp3"
+  "./asset/c6.mp3",
+  "./asset/d6.mp3",
+  "./asset/e6.mp3",
+  "./asset/f6.mp3",
+  "./asset/g6.mp3",
+  "./asset/a6.mp3",
+  "./asset/b6.mp3"
 ];
 
-const keys = ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"];
-
-let boxes = [];
+const keys = ["Z","X","C","V","B","N","M"];
+const isTouch = 'ontouchstart' in window;
 let container = document.querySelector(".piano-container");
 
-let isTouchDevice = 'ontouchstart' in window;
+let boxes = [];
 
-for (let i = 0; i < 10; i++) {
+function playNote(i) {
+  const audio = new Audio(sounds[i]);
+  audio.currentTime = 0;
+  audio.play();
+  boxes[i].style.backgroundColor = getRandomColor();
+}
+
+// Create keys
+for (let i = 0; i < sounds.length; i++) {
   let div = document.createElement("div");
   div.classList.add("box");
-
-  div.style.backgroundColor = getRandomColor();
   div.textContent = keys[i];
 
-  if (isTouchDevice) {
-    // Mobile → Click event
-    div.addEventListener("click", () => {
-      div.style.backgroundColor = getRandomColor();
-      new Audio(sounds[i]).play();
-    });
-  } else {
-    // Laptop/Desktop → Hover effect
-    div.addEventListener("mouseover", () => {
-      div.style.backgroundColor = getRandomColor();
-      new Audio(sounds[i]).play();
-    });
+  // 🔥 Fix — Set initial color so blank na dikhaye
+  div.style.backgroundColor = getRandomColor();
+
+  div.addEventListener("click", () => playNote(i));
+  if (!isTouch) {
+    div.addEventListener("mouseover", () => playNote(i));
   }
 
-  container.appendChild(div);
   boxes.push(div);
+  container.appendChild(div);
+}
+
+// Keyboard support
+if (!isTouch) {
+  document.addEventListener("keydown", (e) => {
+    const idx = keys.indexOf(e.key.toUpperCase());
+    if (idx !== -1) playNote(idx);
+  });
 }

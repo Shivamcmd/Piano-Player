@@ -7,35 +7,45 @@ body {
   background: white;
   font-family: sans-serif;
 }
-
 .title {
-  font-size: 32px;
-  font-weight: bold;
-  color: #222;
+  font-family: "Poppins", sans-serif;
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  background: linear-gradient(90deg, #007BFF, #00E5FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 
 .piano-container {
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .box {
-  width: 125px;
-  height: 600px;
+  width: 110px;
+  height: 450px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 28px;
   color: white;
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
   user-select: none;
+  transition: 0.2s;
 }
 
-/** =================  Footer Styling ================*/
+.box:active {
+  transform: scale(1.05);
+}
+
+/************ FOOTER ************/
 .footer {
   width: 100%;
   display: flex;
@@ -45,7 +55,8 @@ body {
   background: linear-gradient(135deg, #101820, #1f2937);
   color: white;
   border-radius: 12px;
-  margin-top: 30px;
+  margin-top: 35px;
+  flex-wrap: wrap;
 }
 
 .footer-center {
@@ -70,7 +81,6 @@ body {
   color: #00eaff;
 }
 
-/* Quotes Left/Right */
 .quote {
   width: 30%;
   font-size: 15px;
@@ -78,36 +88,136 @@ body {
   opacity: 0.9;
 }
 
-/* Responsive  */
-@media (max-width: 650px) {
-  .piano-container {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
-  }
 
+/************ RESPONSIVE ************/
+
+/* Tablet */
+@media (max-width: 900px) {
+  .box {
+    width: 80px;
+    height: 300px;
+    font-size: 22px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
   .box {
     width: 60px;
-    height: 180px;
+    height: 340px;
     font-size: 16px;
   }
 
   .footer {
-    margin-bottom: 20px;
-    padding: 15px 10px;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    padding: 15px 10px;
+    text-align: center;
   }
 
   .quote {
     width: 100%;
-    text-align: center;
     font-size: 13px;
   }
 
   .profile-img {
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .title {
+    font-size: 24px;
   }
 }
 
+/* Very Small Screens */
+@media (max-width: 380px) {
+  .box {
+    width: 50px;
+    height: 130px;
+    font-size: 14px;
+  }
+}
+
+
+
+
+/*! =============Gif styling part==================  */
+.play-area {
+  width: 100%;
+  display: flex;
+  flex-direction: row; /* Force horizontal */
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  overflow-x: auto;
+}
+
+/* GIF styling */
+.gif-left img,.gif-right img {
+  width: 290px;
+  height: auto;
+  border-radius: 10px;
+  animation: wiggle 2.5s infinite ease-in-out;
+}
+
+/* Piano stays centered */
+.piano-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+/* Animation */
+@keyframes wiggle {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Mobile: hide GIFs */
+@media (max-width: 780px) {
+  .gif-left,
+  .gif-right {
+    display: none;
+  }
+  .play-area {
+    justify-content: center;
+  }
+}
+
+/*!=========== mobile view emojis ============*/
+.dance-audio-emoji img {
+  width: 100px;
+  height: auto;
+}
+
+/* Default (Desktop) */
+.dance-audio-emoji::before,
+.dance-audio-emoji::after {
+  display: none;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .dance-audio-emoji {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .dance-audio-emoji::before,
+  .dance-audio-emoji::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-image: url("./asset/gifs/dance-21966_256.gif");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
